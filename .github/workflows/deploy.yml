@@ -39,3 +39,4 @@ jobs:
           publish_dir: ./dist
           publish_branch: blog
           cname: blog.wahsun.org
+          dotfiles: true
