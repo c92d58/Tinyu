@@ -28,7 +28,7 @@ draft: false
 
 **語言的腐蝕（Newspeak）：** 專制權力通過重新定義詞彙來限制思維邊界。當「自由」被等同於「秩序」，「批評」被等同於「抹黑」，「災難」被描述為「洗禮」時，個體的思維工具被剝奪了。由於缺乏表達反抗的詞彙，反抗本身在思維層面就變得難以達成。
 
-![語言的扭曲如何影響思維](https://images.unsplash.com/photo-1504711434969-e33886168d6c?q=80&w=2670&auto=format&fit=crop)
+![語言的扭曲如何影響思維](https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2670&auto=format&fit=crop)
 
 *誰控制了語言，誰就控制了思想的邊界*
 
