@@ -10,7 +10,7 @@ draft: false
 
 錯。一無所知只會讓人無所畏懼。
 
-![站在懸崖邊的人——無知者往往看不到危險](https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2670&auto=format&fit=crop)
+![站在懸崖邊的人——無知者往往看不到危險](https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop)
 
 *無知者最大的幸運，是他們不知道自己在冒險*
 
@@ -30,7 +30,7 @@ draft: false
 
 1999年，康奈爾大學的心理學家大衛・鄧寧和賈斯汀・克魯格做了一系列實驗，得出了一个極其冷酷的結論：**能力越低的人，越容易產生對自己能力的虛幻優越感。**
 
-![](https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=2670&auto=format&fit=crop)
+![](https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2532&auto=format&fit=crop)
 
 *評估自己無知的能力，恰恰需要你擁有足夠的知識*
 
@@ -64,7 +64,7 @@ draft: false
 
 從愚昧之巔跌落，會直接砸進「絕望之谷」。這是達克效應中最痛苦，但也最珍貴的一個階段。
 
-![跌入谷底——絕望之後才有真正的成長](https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop)
+![跌入谷底——絕望之後才有真正的成長](https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2670&auto=format&fit=crop)
 
 *絕望之谷是覺醒的起點*
 
@@ -86,7 +86,7 @@ draft: false
 
 因為你終於明白，你以為的自信，可能只是因為你還沒撞上那堵名為「現實」的牆。
 
-![曲折向上的山路——真正的成長是緩慢而艱難的](https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=2670&auto=format&fit=crop)
+![曲折向上的山路——真正的成長是緩慢而艱難的](https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2670&auto=format&fit=crop)
 
 *開悟之坡沒有捷徑，每一步都是對無知的告別*
 

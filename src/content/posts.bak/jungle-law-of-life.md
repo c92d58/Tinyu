@@ -18,7 +18,7 @@ draft: false
 
 這不是要我們退回茹毛飲血的野蠻狀態。恰恰相反——**看清叢林法則的存在，是保護自己不被叢林吞噬的前提**。真正的危險不是叢林本身，而是你以為自己住在一個永遠安全的花園裡，以至於忘記了帶武器。
 
-![文明與荒野的邊界](https://placehold.co/2670x1780/1a1a2e/eaeaea?text=Civilization+and+Wilderness&font=inter)
+![](https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2670&auto=format&fit=crop)
 
 _文明與荒野的邊界，遠比你想像的模糊_
 
@@ -44,7 +44,7 @@ _文明與荒野的邊界，遠比你想像的模糊_
 
 > **國際博弈的本質是價值交換與實力對話。迷信他人的善意或國際法的保護，最終的下場就是被擺上大國的談判桌，成為利益交換的籌碼。**
 
-![](https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2670&auto=format&fit=crop)
+![](https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2670&auto=format&fit=crop)
 
 _全球地緣政治的棋局——每一個棋子都在被計算_
 
@@ -76,7 +76,7 @@ _全球地緣政治的棋局——每一個棋子都在被計算_
 
 > **實力決定了你社會交換的底線和尊嚴。善良只能在實力確立之後，作為優化關係的催化劑——而不能反過來。**
 
-![職場不是慈善機構](https://images.unsplash.com/photo-1517292987719-0369a794ec0f?q=80&w=2670&auto=format&fit=crop)
+![](https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2670&auto=format&fit=crop)
 
 _職場不是慈善機構——利益分配的邏輯從未改變_
 
@@ -118,7 +118,7 @@ _職場不是慈善機構——利益分配的邏輯從未改變_
 - **聯盟與制衡**：在群體中尋找利益共同體。孤立是掠食者的最愛，聯盟是獵物的最強保護。
 - **資訊不對稱**：掌握別人不知道的資訊，本身就是一種力量。不是用來威脅，而是用來確保你在談判桌上不被欺騙。
 
-![大棒與胡蘿蔔](https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=2670&auto=format&fit=crop)
+![](https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2670&auto=format&fit=crop)
 
 _大棒與胡蘿蔔——實力和善意缺一不可_
 

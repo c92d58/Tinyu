@@ -10,7 +10,7 @@ draft: false
 
 然而，生命的真相往往如同林間的草木——一粒松子的願景是成為參天大樹，一粒草籽的使命是鋪滿原野。外力可以決定生長的速度，卻永遠無法決定生命的物種。
 
-![森林中的光影——每棵樹都有自己的生長軌跡](https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=2670&auto=format&fit=crop)
+![森林中的光影——每棵樹都有自己的生長軌跡](https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2671&auto=format&fit=crop)
 
 *外力可以決定生長的速度，卻永遠無法決定生命的物種*
 
@@ -26,7 +26,7 @@ draft: false
 
 成長，本質上是一場孤獨的自我突圍。
 
-![孤獨的登山者——成長是獨一無二的旅程](https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2670&auto=format&fit=crop)
+![孤獨的登山者——成長是獨一無二的旅程](https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop)
 
 *成長是一場孤獨的自我突圍*
 
