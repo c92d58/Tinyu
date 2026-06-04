@@ -8,7 +8,7 @@ draft: false
 
 真正的強大，從來不是一種孤立的肌肉記憶，也不是盲目的意志力消耗。它是一種全局性的生態構建——是個體在充分掌握信息、洞察底層邏輯後，在動態的環境中制定的最優應對策略。
 
-![迷霧中的山脈——強大來自對全局的洞察](https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop)
+![迷霧中的山脈——強大來自對全局的洞察](https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=2670&auto=format&fit=crop)
 
 *真正的強大，不是一味的蠻力，而是對全局的掌控*
 
@@ -22,7 +22,7 @@ draft: false
 
 > 不帶偏見地接受現實，是弱者向強者進化的第一道門檻。
 
-![大腦神經網絡——認知閉環的力量](https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2532&auto=format&fit=crop)
+![大腦神經網絡——認知閉環的力量](https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2670&auto=format&fit=crop)
 
 *認知閉環讓你從糾結轉向行動*
 
@@ -64,6 +64,6 @@ draft: false
 
 這需要你不斷地閉合認知、提高信息效率、連接關鍵節點、看透系統規則。這是一條沒有終點的路，但每一步都會讓你比昨天更強大。
 
-![日出的地平線——在複雜中找到自己的秩序](https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2670&auto=format&fit=crop)
+![日出的地平線——在複雜中找到自己的秩序](https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2670&auto=format&fit=crop)
 
 *真正的秩序，是在理解混沌之後建立的*

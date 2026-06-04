@@ -56,7 +56,7 @@ draft: false
 
 **雙重思維表現：** 許多曾深陷物資匱乏、行動受限痛苦中的個體，在事後由於宣傳導向的調整，能夠迅速將痛苦記憶轉化為「集體戰疫」的自豪感。他們並非忘記了痛苦，而是學會了一種用「被允許」的方式去重新解釋痛苦。這種對記憶的剪輯，使得個體失去了從歷史中汲取教訓的能力。
 
-![集體記憶如何被重新塑造](https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2670&auto=format&fit=crop)
+![集體記憶如何被重新塑造](https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=2670&auto=format&fit=crop)
 
 *記憶是可以被改寫的——問題在於，誰掌握了那支筆*
 
@@ -86,7 +86,7 @@ draft: false
 
 **守護私人語言：** 堅持用樸素、直白的語言描述世界，拒絕使用那些被權力污染、帶有預設傾向的詞彙。
 
-![通往自由的道路始於認知的重啟](https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop)
+![通往自由的道路始於認知的重啟](https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2670&auto=format&fit=crop)
 
 *走出思維的囚籠，第一步是意識到牆的存在*
 

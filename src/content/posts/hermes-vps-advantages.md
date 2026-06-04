@@ -14,7 +14,7 @@ Cloud AI 服務最大的隱形成本不是錢，是**切換成本**。當你把 
 
 Hermes 架構的核心設計是 **Provider 抽象層**：
 
-![](https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=2670&auto=format&fit=crop)
+![](https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop)
 
 _不同 AI 服務連接示意_
 
@@ -46,7 +46,7 @@ auxiliary:
 
 當你透過網頁版 ChatGPT 或 Claude 處理工作，每一次對話——包括你貼進去的原始碼、伺服器 IP、資料庫結構、商業邏輯——都存放在別人的伺服器上。
 
-![](https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop)
+![](https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2670&auto=format&fit=crop)
 
 _資料安全與控制的視覺化示意_
 
@@ -64,7 +64,7 @@ Hermes 跑在你自己 VPS 上的時候：
 
 Hermes 的 cron 系統把 AI 代理變成了一個**24/7 的背景服務**：
 
-![](https://images.unsplash.com/photo-1517292987719-0369a794ec0f?q=80&w=2674&auto=format&fit=crop)
+![](https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2670&auto=format&fit=crop)
 
 _時間排程與自動化的視覺化示意_
 
@@ -96,7 +96,7 @@ SaaS AI 工具的功能上限由產品經理決定。Hermes 的功能上限由**
 
 Skill 系統是 Hermes 最強大的設計之一。它不像傳統 plugin 那樣需要寫程式碼——你可以用自然語言定義一個重複性工作流程，Hermes 會記住並且在下次自動套用。
 
-![](https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=2670&auto=format&fit=crop)
+![](https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2670&auto=format&fit=crop)
 
 _系統架構與工具整合示意_
 
@@ -119,7 +119,7 @@ _系統架構與工具整合示意_
 - **推播通知** — 磁碟告警直接出現在 Telegram 通知欄。比 email 即時，比 Slack 簡潔，比 PagerDuty 便宜。
 - **檔案直接傳送** — 排程任務輸出的報表、圖片、log 壓縮檔，直接以媒體形式發到你的聊天室。
 
-![](https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=2670&auto=format&fit=crop)
+![](https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2670&auto=format&fit=crop)
 
 _即時通訊與系統管理的視覺化示意_
 

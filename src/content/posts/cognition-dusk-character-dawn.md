@@ -12,7 +12,7 @@ draft: false
 
 這是為什麼？
 
-![大腦與性格的隱喻——理性與感性的交匯](https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2532&auto=format&fit=crop)
+![大腦與性格的隱喻——理性與感性的交匯](https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=2670&auto=format&fit=crop)
 
 *智慧是燈塔，性格是舵手——缺少任何一方，航行都注定偏離*
 
@@ -28,7 +28,7 @@ draft: false
 
 認知是基於過去的。正如物理學家玻爾所言：「專家就是在一個很小的領域內犯過所有錯誤的人。」這意味著，智慧越高的人，往往越容易依賴於已有的成功模型。當環境發生突變（範式轉移）時，舊有的智慧反而成了最厚的障壁。
 
-![迷霧中的路標——認知邊界的視覺化](https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop)
+![迷霧中的路標——認知邊界的視覺化](https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop)
 
 *當熟悉的路標消失，智慧無法告訴你該往哪裡走*
 
@@ -104,6 +104,6 @@ draft: false
 
 因為當智慧走到盡頭，只有性格能帶你回家。
 
-![日出的山脊——性格如黎明般照亮前路](https://images.unsplash.com/photo-1505144808419-1957a94ca61e?q=80&w=2626&auto=format&fit=crop)
+![日出的山脊——性格如黎明般照亮前路](https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=2670&auto=format&fit=crop)
 
 *認知的黃昏之後，是性格的黎明*
