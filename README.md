@@ -1,6 +1,6 @@
 # Wahsun Blog
 
-個人技術部落格，基於 [Astro](https://astro.build) 建置，使用 [uinux-blog](https://github.com/Get-UINUX/uinux-blog) 主題修改而成。
+個人部落格，基於 [Astro](https://astro.build) 建置，使用 [uinux-blog](https://github.com/Get-UINUX/uinux-blog) 主題修改而成。
 
 ## 版本資訊
 
