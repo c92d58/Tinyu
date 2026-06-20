@@ -33,7 +33,7 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
             day: "numeric",
           });
           return (
-            <li class="post-item animate-fade-up delay-{Math.min(i + 1, 6)}">
+            <li class="post-item animate-fade-up delay-{Math.min(i + 1, 6)}" data-index={i + 1}>
               <a href={`/posts/${post.id}`}>
                 <span class="post-title">{post.data.title}</span>
                 <span class="post-description">{post.data.description}</span>
@@ -72,17 +72,22 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
     animation: fadeIn 0.8s ease 0.2s both;
   }
 
+  /* ─── Post List ──────────────────────────── */
   .post-list {
     list-style: none;
     padding: 0;
   }
 
+  /* ─── Post Item ──────────────────────────── */
   .post-item {
+    position: relative;
     border-bottom: 1px solid var(--color-border);
-    transition: transform 0.2s ease, opacity 0.5s ease;
+    transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     border-radius: 6px;
     margin: 0 calc(-1 * var(--space-md));
     padding: 0 var(--space-md);
+    padding-left: calc(var(--space-md) + 10px);
+    overflow: hidden;
   }
 
   .post-item:first-child {
@@ -92,8 +97,52 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
   .post-item:hover {
     background: var(--color-accent-subtle);
     transform: translateX(4px);
+    border-color: var(--color-text-tertiary);
   }
 
+  /* ─── Left Accent Bar ──────────────────── */
+  .post-item::before {
+    content: '';
+    position: absolute;
+    left: var(--space-md);
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: var(--color-border);
+    border-radius: 1px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .post-item:hover::before {
+    background: var(--color-text);
+    transform: scaleY(1.15);
+    box-shadow: 0 0 6px rgba(0,0,0,0.08);
+  }
+
+  /* ─── Decorative Post Number ───────────── */
+  .post-item::after {
+    content: attr(data-index);
+    position: absolute;
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 200;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--color-border);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .post-item:hover::after {
+    -webkit-text-stroke-color: var(--color-accent);
+    transform: translateY(-50%) scale(1.08) translateX(-2px);
+  }
+
+  /* ─── Post Link ────────────────────────── */
   .post-item a {
     display: flex;
     flex-direction: column;
@@ -102,6 +151,8 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
     padding-bottom: var(--space-lg);
     text-decoration: none;
     color: var(--color-text);
+    position: relative;
+    z-index: 1;
   }
 
   .post-item a:hover .post-title {
@@ -124,19 +175,50 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
     line-height: 1.5;
   }
 
+  /* ─── Date with Dot Decorator ──────────── */
   .post-item time {
     font-family: var(--font-heading);
     font-size: 0.75rem;
     color: var(--color-text-tertiary);
     margin-top: var(--space-xs);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
+  .post-item time::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--color-border);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .post-item:hover time::before {
+    background: var(--color-text-tertiary);
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
+
+  /* ─── Pagination ────────────────────────── */
   .pagination {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: var(--space-xl);
     padding-top: var(--space-lg);
+    position: relative;
+  }
+
+  .pagination::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-border) 0%, transparent 80%);
   }
 
   .pagination-link {
@@ -144,10 +226,19 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
     font-size: 0.8125rem;
     color: var(--color-text-secondary);
     text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   .pagination-link:hover {
     color: var(--color-text);
+    transform: translateX(2px);
+  }
+
+  .pagination-link:first-child:hover {
+    transform: translateX(-2px);
   }
 
   .pagination-info {
