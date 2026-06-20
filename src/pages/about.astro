@@ -8,12 +8,12 @@ const gravatarHash = crypto.createHash("md5").update("x@wahsun.org".trim().toLow
 const gravatarUrl = `https://www.gravatar.com/avatar/${gravatarHash}?s=144&d=mp`;
 ---
 
-<Layout title="關於 — 部落格" description="關於這個部落格。">
+<Layout title="關於 — 部落格" description="書寫情感、認知心理學，與社會觀察。">
   <script slot="head" type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://blog.wahsun.org",
     "@type": "AboutPage",
     "name": "關於這個部落格",
-    "description": "關於這個部落格。",
+    "description": "書寫情感、認知心理學，與社會觀察。",
     "url": new URL("/about", Astro.site).href,
     "isPartOf": {
       "@type": "WebSite",
@@ -28,19 +28,20 @@ const gravatarUrl = `https://www.gravatar.com/avatar/${gravatarHash}?s=144&d=mp`
         <span class="avatar-ring"></span>
       </div>
       <Heading as="h1"> </Heading>
-      <p class="about-subtitle">WAHSUN 的數位庭園</p>
+      <p class="about-subtitle">書寫情感、認知心理學，與社會觀察</p>
     </div>
 
     <div class="about-card">
       <div class="about-card-accent"></div>
       <Prose>
         <p>
-          由好奇心牽著走的自學角落。
+          這裡不談技術，不寫教學，不比較工具。
         </p>
         <p>
-          這裡沒有工程師的頭銜，只有一個樂於拆解、嘗試與記錄的靈魂。
-          從自架伺服器到 AI 工具探索，從命令列到生活哲學，
-          每篇文章都是一次「邊做邊學」的足跡。
+          只談那些真正困擾人的——情感的真偽、認知的盲區、社會運作的潛規則。從米爾格倫的電擊實驗到日常生活中的自我欺騙，從群體壓力下的服從到面對真相時的戰慄，每一篇文章都是對人性某個側面的凝視。
+        </p>
+        <p>
+          不是學術論文，只是一個持續思考的人留下的筆記。
         </p>
       </Prose>
     </div>
@@ -49,7 +50,7 @@ const gravatarUrl = `https://www.gravatar.com/avatar/${gravatarHash}?s=144&d=mp`
       <div class="about-card-accent"></div>
       <Prose>
         <p>
-          沒有電子報。沒有彈窗。沒有追蹤。只有文字。
+          沒有電子報。沒有彈窗。沒有追蹤。沒有演算法。只有文字——以及你想從中讀到的任何東西。
         </p>
         <p>
           信箱：<a href="mailto:x@wahsun.org" class="about-email">x@wahsun.org</a>
@@ -59,16 +60,16 @@ const gravatarUrl = `https://www.gravatar.com/avatar/${gravatarHash}?s=144&d=mp`
 
     <div class="about-stats">
       <div class="stat-item animate-fade-up delay-1">
-        <span class="stat-number">自架</span>
-        <span class="stat-label">Infrastructure</span>
+        <span class="stat-number">情感</span>
+        <span class="stat-label">Emotion</span>
       </div>
       <div class="stat-item animate-fade-up delay-2">
-        <span class="stat-number">自學</span>
-        <span class="stat-label">Self-Taught</span>
+        <span class="stat-number">認知</span>
+        <span class="stat-label">Cognition</span>
       </div>
       <div class="stat-item animate-fade-up delay-3">
-        <span class="stat-number">自由</span>
-        <span class="stat-label">Independent</span>
+        <span class="stat-number">社會</span>
+        <span class="stat-label">Society</span>
       </div>
     </div>
   </section>

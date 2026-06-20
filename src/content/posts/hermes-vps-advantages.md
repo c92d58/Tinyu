@@ -3,7 +3,7 @@ title: '為什麼我在自己VPS跑 Hermes Agent'
 description: '從模型靈活性、資料主權到自動化排程——完整分析為什麼將 Hermes Agent 部署在自己的 VPS 上是一項值得的投資'
 date: 2026-06-01
 tags: ['Hermes Agent', 'VPS', '自架部署', '開源', 'DevOps']
-draft: false
+draft: true
 ---
 
 如果你正在考慮是否要把 AI 代理放到自己的伺服器上，這篇文章會給你一個完整的評估框架。

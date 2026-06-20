@@ -7,7 +7,7 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: "部落格",
-    description: "一方靜謐閱讀之地——書寫系統、科技，以及我們周遭的世界。",
+    description: "書寫情感、認知心理學，與社會觀察。",
     site: context.site!,
     items: posts.map((post) => ({
       title: post.data.title,

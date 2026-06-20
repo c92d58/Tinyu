@@ -3,7 +3,7 @@ title: 'Mac 終端機新手包：安裝並用 Claude Code + DeepSeek 寫程式'
 description: '從零開始，在 Mac 終端機安裝 Claude Code，並串接中國 DeepSeek API 做為程式開發助手——最適閤中文使用者的 CI 級 AI 開發環境設定指南'
 date: 2026-06-11
 tags: ['AI', 'Claude', 'DeepSeek', 'Mac', '開發工具', '教學']
-draft: false
+draft: true
 ---
 
 如果你是一個開發者，最近一定被「AI 寫程式」的新聞轟炸。Claude Code、GitHub Copilot、Cursor——但你可能不知道的是，這些工具大多能**自己選擇模型**，不一定要綁在美國的 AI 服務上。這篇文章會帶你：在 Mac 終端機安裝 Claude Code、串接中國的 DeepSeek API、寫一個實際的程式任務來測試。全程只要打指令，不用離開終端機。

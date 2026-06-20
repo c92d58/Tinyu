@@ -3,7 +3,7 @@ title: 'Fail2ban + SSH 審計聯動：VPS 公網最佳防護方案'
 description: '一套完整的 SSH 暴力破解防護方案，整合 Fail2ban、Systemd 日誌與審計記錄，實現即時封禁、可回溯、不誤傷公鑰使用者的生產級配置。'
 date: 2026-06-04
 tags: ['Linux', '安全', 'SSH', 'Fail2ban', 'DevOps', '伺服器']
-draft: false
+draft: true
 ---
 
 如果你的 VPS 直接暴露在公網上，大概在開機後 24 小時內，你就會看到 `sshd` 日誌裡充滿了來自世界各地的暴力掃描。這不是「會不會」的問題，而是「何時」的問題。
