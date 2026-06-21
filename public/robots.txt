@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://blog.wahsun.org/sitemap-index.xml
+Sitemap: https://tinyu.wahsun.org/sitemap-index.xml

@@ -104,7 +104,7 @@ export async function generateOgImage({
                 margin: 0,
                 letterSpacing: "0.01em",
               },
-              children: "blog.wahsun.org",
+              children: "tinyu.wahsun.org",
             },
           },
         ],
