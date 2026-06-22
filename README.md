@@ -18,7 +18,7 @@
 | 項目 | 採用 |
 |------|------|
 | 框架 | [Astro](https://astro.build) 6.x |
-| 主題 | 基於 uinux-blog 深度改寫 |
+| 主題 | Tingyu,完全由WAHSUN設計製作 |
 | 部署 | [Cloudflare Pages](https://pages.cloudflare.com) |
 | 網域 | wahsun.org (Cloudflare DNS) |
 
@@ -33,6 +33,3 @@ npm run build    # 生產構建
 ## 版權
 
 © 2026 **WAHSUN**. All rights reserved.
-
-本網站基於 [uinux-blog](https://github.com/Get-UINUX/uinux-blog) 主題修改，原主題採用 MIT License。
-站內所有原創文字與圖片版權歸 WAHSUN 所有，未經授權不得轉載或商用。
