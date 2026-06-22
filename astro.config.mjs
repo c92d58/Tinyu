@@ -5,7 +5,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 export default defineConfig({
-  site: "https://tinyu.wahsun.org",
+  site: "https://tingyu.wahsun.org",
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {
