@@ -120,7 +120,7 @@ const restPosts = allPosts.slice(1, PAGE_SIZE);
     width: calc(100% + ((var(--width-wide) - var(--width-content)) / 2) * 2);
     max-width: none;
     margin-left: calc(-1 * ((var(--width-wide) - var(--width-content)) / 2));
-    height: 380px;
+    height: 240px;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: var(--space-2xl);
@@ -192,11 +192,11 @@ const restPosts = allPosts.slice(1, PAGE_SIZE);
 
   .hero-badge {
     font-family: var(--font-heading);
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
     letter-spacing: 0.15em;
     color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
 
   .hero-title {
@@ -207,7 +207,7 @@ const restPosts = allPosts.slice(1, PAGE_SIZE);
 
   .hero-title-char {
     font-family: "Noto Serif SC", var(--font-display), serif;
-    font-size: 5rem;
+    font-size: 3.6rem;
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.08em;
@@ -469,19 +469,19 @@ const restPosts = allPosts.slice(1, PAGE_SIZE);
       border-radius: 16px;
       width: 100%;
       margin-left: 0;
-      height: 320px;
+      height: 200px;
     }
   }
 
   @media (max-width: 600px) {
     .hero {
-      height: 260px;
+      height: 170px;
       border-radius: 12px;
       margin-bottom: var(--space-lg);
     }
-    .hero-title-char { font-size: 3.5rem; }
-    .hero-badge { font-size: 0.625rem; }
-    .hero-sub { font-size: 0.8125rem; }
+    .hero-title-char { font-size: 2.8rem; }
+    .hero-badge { font-size: 0.5625rem; margin-bottom: var(--space-sm); }
+    .hero-sub { font-size: 0.75rem; }
 
     .featured { padding: var(--space-md); }
     .post-item { padding: var(--space-md); }
