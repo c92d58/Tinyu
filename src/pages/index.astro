@@ -38,9 +38,6 @@ const restPosts = allPosts.slice(1, PAGE_SIZE);
           <span class="hero-title-char">雨</span>
         </h1>
         <p class="hero-sub">在雨聲中，讀懂人性的溫度</p>
-        <div class="hero-drops" aria-hidden="true">
-          <span>°</span><span>º</span><span>°</span><span>º</span><span>°</span>
-        </div>
       </div>
     </div>
 
@@ -125,7 +122,6 @@ const restPosts = allPosts.slice(1, PAGE_SIZE);
     overflow: hidden;
     margin-bottom: var(--space-2xl);
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
   }
 
   @media (min-width: 821px) {
@@ -133,7 +129,6 @@ const restPosts = allPosts.slice(1, PAGE_SIZE);
       width: 100%;
       margin-left: 0;
       border-radius: 20px;
-      border: 1px solid var(--color-border);
     }
   }
 
@@ -233,28 +228,6 @@ const restPosts = allPosts.slice(1, PAGE_SIZE);
     max-width: 400px;
   }
 
-  .hero-drops {
-    display: flex;
-    gap: 4px;
-    margin-top: var(--space-lg);
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.25);
-    animation: hero-drip 2s ease-in-out infinite;
-  }
-  .hero-drops span {
-    animation: hero-bounce 2.2s ease-in-out infinite;
-  }
-  .hero-drops span:nth-child(2) { animation-delay: 0.3s; }
-  .hero-drops span:nth-child(3) { animation-delay: 0.6s; }
-  .hero-drops span:nth-child(4) { animation-delay: 0.9s; }
-  .hero-drops span:nth-child(5) { animation-delay: 1.2s; }
-
-  @keyframes hero-bounce {
-    0%, 100% { transform: translateY(0); opacity: 0.2; }
-    50% { transform: translateY(-5px); opacity: 0.6; }
-  }
-
-  /* ─── Featured Post ──────────────────────── */
   .featured {
     margin-bottom: var(--space-xl);
     padding: var(--space-lg);

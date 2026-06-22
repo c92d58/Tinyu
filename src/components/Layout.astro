@@ -74,14 +74,6 @@ const ogImageAbsolute = new URL(ogImage, Astro.site).href;
   </head>
   <body>
     <div class="page">
-      <!-- Decorative top rain line -->
-      <div class="top-rain" aria-hidden="true">
-        <span class="top-rain-drop"></span>
-        <span class="top-rain-drop"></span>
-        <span class="top-rain-drop"></span>
-        <span class="top-rain-drop"></span>
-        <span class="top-rain-drop"></span>
-      </div>
       <Nav />
       <main id="main-content">
         <slot />
@@ -138,34 +130,7 @@ const ogImageAbsolute = new URL(ogImage, Astro.site).href;
     flex: 1;
   }
 
-  /* ─── Decorative top rain line ──────────── */
-  .top-rain {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    padding: var(--space-lg) 0 var(--space-sm);
-    opacity: 0.15;
-  }
-  .top-rain-drop {
-    display: block;
-    width: 2px;
-    height: 16px;
-    background: var(--color-text-tertiary);
-    border-radius: 1px;
-    animation: rain-drop 1.8s ease-in-out infinite;
-  }
-  .top-rain-drop:nth-child(2) { animation-delay: 0.3s; height: 12px; }
-  .top-rain-drop:nth-child(3) { animation-delay: 0.6s; height: 20px; }
-  .top-rain-drop:nth-child(4) { animation-delay: 0.9s; height: 14px; }
-  .top-rain-drop:nth-child(5) { animation-delay: 1.2s; height: 10px; }
-
-  @keyframes rain-drop {
-    0%, 100% { opacity: 0.2; transform: translateY(0); }
-    50% { opacity: 0.7; transform: translateY(6px); }
-  }
-
   @media (max-width: 600px) {
     .page { padding: 0 var(--space-md); }
-    .top-rain { padding: var(--space-md) 0 var(--space-xs); }
   }
 </style>
