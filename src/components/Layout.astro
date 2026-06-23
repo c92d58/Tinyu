@@ -74,6 +74,7 @@ const ogImageAbsolute = new URL(ogImage, Astro.site).href;
   </head>
   <body>
     <div class="page">
+      <canvas id="mouse-trail" class="mouse-trail"></canvas>
       <Nav />
       <main id="main-content">
         <slot />
@@ -94,7 +95,86 @@ const ogImageAbsolute = new URL(ogImage, Astro.site).href;
         }, { passive: true });
       }
     </script>
+    <script>
+      // Mouse trail particle effect
+      (function() {
+        const canvas = document.getElementById('mouse-trail');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let points = [];
+        let mouse = { x: -9999, y: -9999 };
+        let animating = true;
+
+        function resize() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        function Point(x, y, sx, sy, size, alpha) {
+          this.x = x; this.y = y;
+          this.sx = sx; this.sy = sy;
+          this.size = size;
+          this.alpha = alpha;
+          this.life = 1;
+          this.active = true;
+          this.update = function() {
+            this.x += this.sx;
+            this.y += this.sy;
+            this.sy += 0.04;
+            this.life -= 0.008;
+            this.alpha = this.life * 0.6;
+            if (this.life <= 0) { this.active = false; }
+          };
+          this.draw = function() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size * this.life, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(217,119,6,${this.alpha})`;
+            ctx.fill();
+          };
+        }
+
+        function animate() {
+          if (!animating) { requestAnimationFrame(animate); return; }
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          for (let i = 0; i < 3; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = 0.5 + Math.random() * 1.5;
+            points.push(new Point(
+              mouse.x + (Math.random() - 0.5) * 4,
+              mouse.y + (Math.random() - 0.5) * 4,
+              Math.cos(angle) * speed,
+              Math.sin(angle) * speed - 1,
+              2 + Math.random() * 3,
+              0.3 + Math.random() * 0.4
+            ));
+          }
+
+          points = points.filter(p => p.active);
+          for (const p of points) { p.update(); p.draw(); }
+          if (points.length > 300) points = points.slice(-300);
+
+          requestAnimationFrame(animate);
+        }
+
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) animate();
+
+        document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        document.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+      })();
+    </script>
   </body>
 </html>
 
-<style></style>
+<style>
+  .mouse-trail {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+  }
+</style>
