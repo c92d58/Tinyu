@@ -4,7 +4,7 @@
 
 **聽雨** — 個人部落格，記錄閱讀、思考與生活的點滴。
 
-🌐 **網站：** https://tingyu.wahsun.org
+🌐 **網站：** https://blog.wahsun.org
 
 ---
 

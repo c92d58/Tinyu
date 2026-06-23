@@ -79,58 +79,22 @@ const ogImageAbsolute = new URL(ogImage, Astro.site).href;
         <slot />
       </main>
       <Footer />
+      <BackToTop />
+      <div id="reading-progress" class="reading-progress" aria-hidden="true"></div>
     </div>
-    <BackToTop />
-
-    <!-- Reading progress indicator -->
-    <div id="reading-progress" class="reading-progress" aria-hidden="true"></div>
     <script>
-      const progress = document.getElementById("reading-progress");
-      if (progress) {
-        window.addEventListener("scroll", () => {
+      // Reading progress indicator
+      const bar = document.getElementById('reading-progress');
+      if (bar) {
+        window.addEventListener('scroll', () => {
           const scrollTop = window.scrollY;
           const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const pct = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-          progress.style.transform = `scaleX(${pct})`;
+          const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+          bar.style.transform = `scaleX(${progress})`;
         }, { passive: true });
       }
     </script>
   </body>
 </html>
 
-<style>
-  .reading-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--color-accent), transparent);
-    transform: scaleX(0);
-    transform-origin: left;
-    z-index: 100;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    opacity: 0;
-  }
-  .reading-progress {
-    opacity: 1;
-  }
-
-  .page {
-    max-width: var(--width-wide);
-    margin: 0 auto;
-    padding: 0 var(--space-lg);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1;
-  }
-
-  @media (max-width: 600px) {
-    .page { padding: 0 var(--space-md); }
-  }
-</style>
+<style></style>

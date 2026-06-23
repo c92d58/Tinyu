@@ -4,30 +4,20 @@ const currentPath = Astro.url.pathname;
 
 <nav class="nav">
   <a href="/" class="nav-brand">
-    <!-- Logo mark -->
-    <span class="nav-logo-wrap">
-      <img src="/logo-mark.svg" alt="" class="nav-logo" width="24" height="24" loading="eager" />
-    </span>
-    <span class="nav-brand-text">
-      <span class="nav-brand-char">聽雨</span>
-    </span>
+    <span class="nav-logo">聽雨</span>
   </a>
   <div class="nav-links">
     <a href="/tags" class:list={[{ active: currentPath.startsWith("/tags") }]}>
-      <span class="nav-link-text">標籤</span>
-      <span class="nav-ink"></span>
+      <span>標籤</span>
     </a>
-    <a href="/search" class:list={[{ active: currentPath === "/search" || currentPath === "/search/" }]}>
-      <span class="nav-link-text">搜尋</span>
-      <span class="nav-ink"></span>
+    <a href="/search" class:list={[{ active: currentPath === "/search" }]}>
+      <span>搜尋</span>
     </a>
-    <a href="/about" class:list={[{ active: currentPath === "/about" || currentPath === "/about/" }]}>
-      <span class="nav-link-text">關於</span>
-      <span class="nav-ink"></span>
+    <a href="/about" class:list={[{ active: currentPath === "/about" }]}>
+      <span>關於</span>
     </a>
-    <a href="/rss.xml">
-      <span class="nav-link-text">RSS</span>
-      <span class="nav-ink"></span>
+    <a href="/rss.xml" class="nav-rss">
+      <span>RSS</span>
     </a>
   </div>
 </nav>
@@ -35,134 +25,82 @@ const currentPath = Astro.url.pathname;
 <style>
   .nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: var(--space-lg) 0;
+    justify-content: space-between;
+    padding: 1.25rem 0;
     position: relative;
   }
-
   .nav::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--color-border) 20%, var(--color-border) 80%, transparent 100%);
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
   }
 
   .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    text-decoration: none;
-    color: var(--color-text);
-    transition: opacity 0.2s ease;
-  }
-
-  .nav-brand:hover {
-    opacity: 0.75;
-  }
-
-  .nav-logo-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-  }
-
-  .nav-logo {
-    width: 24px;
-    height: 24px;
-    display: block;
-    color: var(--color-text);
-  }
-
-  .nav-brand-text {
-    display: flex;
-    align-items: baseline;
-    gap: 2px;
-  }
-
-  .nav-brand-char {
     font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
   }
-
-  .nav-brand-meta {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 1px;
+  .nav-brand:hover {
+    color: var(--accent);
   }
-
-  .nav-brand-dot {
-    color: var(--color-accent);
-    font-weight: 300;
-    margin: 0 1px;
-  }
-
-  .nav-brand-sub {
-    font-size: 0.65rem;
-    font-weight: 400;
-    color: var(--color-text-tertiary);
-    letter-spacing: 0.04em;
-    text-transform: lowercase;
+  .nav-logo {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .nav-links {
     display: flex;
-    gap: var(--space-lg);
+    align-items: center;
+    gap: 0.25rem;
   }
-
   .nav-links a {
     font-family: var(--font-heading);
     font-size: 0.8125rem;
-    color: var(--color-text-secondary);
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s, background 0.2s;
     text-decoration: none;
     position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    transition: color 0.2s ease;
   }
-
-  .nav-links a:hover,
+  .nav-links a:hover {
+    color: var(--text);
+    background: var(--surface-hover);
+  }
   .nav-links a.active {
-    color: var(--color-text);
+    color: var(--accent);
+    background: var(--accent-subtle);
   }
-
-  .nav-ink {
-    display: block;
-    width: 0;
-    height: 1.5px;
-    background: var(--color-accent);
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 50%; right: 50%;
+    height: 2px;
+    background: var(--gradient);
     border-radius: 1px;
-    transition: width 0.3s ease, opacity 0.3s ease;
-    opacity: 0.6;
+    transition: left 0.2s, right 0.2s;
+    opacity: 0;
+  }
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    left: 0.75rem; right: 0.75rem;
+    opacity: 1;
   }
 
-  .nav-links a:hover .nav-ink,
-  .nav-links a.active .nav-ink {
-    width: 100%;
-  }
-
-  @media (max-width: 600px) {
-    .nav {
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-md) 0;
-    }
-    .nav-links {
-      gap: var(--space-md);
-    }
-    .nav-brand-sub {
-      display: none;
-    }
+  @media (max-width: 480px) {
+    .nav { padding: 1rem 0; }
+    .nav-links a { padding: 0.375rem 0.5rem; font-size: 0.75rem; }
   }
 </style>

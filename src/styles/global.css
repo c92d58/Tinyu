@@ -1,180 +1,128 @@
 /* ============================================
-   聽雨 — Global Design System
-   水墨詩意 × 數位極簡
+   聽雨 — Redesigned
+   Modern text-content theme
    ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  /* ─── Typography ─────────────────────────── */
-  --font-body: "Newsreader", "Noto Serif SC", Georgia, "Times New Roman", serif;
-  --font-heading: "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
-  --font-display: "Newsreader", "Noto Serif SC", Georgia, serif;
-  --font-size-sm: 0.8125rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.375rem;
+  /* Typography */
+  --font-body: "Lora", Georgia, "Times New Roman", serif;
+  --font-heading: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
-  /* ─── Light Mode ─────────────────────────── */
-  --color-bg: #f7f3eb;
-  --color-surface: #faf7f1;
-  --color-text: #2c2a26;
-  --color-text-secondary: #6b6660;
-  --color-text-tertiary: #9c9690;
-  --color-border: #e0dad2;
-  --color-border-light: #ede8e0;
-  --color-accent: #8b7e72;
-  --color-accent-subtle: rgba(139, 126, 114, 0.07);
-  --color-link: #2c2a26;
-  --color-link-hover: #6b6660;
-  --color-code-bg: #efeae2;
-  --color-ink-light: rgba(44, 42, 38, 0.04);
-  --color-ink-medium: rgba(44, 42, 38, 0.06);
+  /* Light mode */
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --surface-hover: #f8f6f2;
+  --text: #1a1a2e;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  --accent: #d97706;
+  --accent-subtle: #fef3c7;
+  --accent-hover: #b45309;
+  --border: #e5e7eb;
+  --border-light: #f3f4f6;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+  --gradient: linear-gradient(135deg, #d97706, #f59e0b);
 
-  /* ─── Spacing ────────────────────────────── */
-  --width-content: 640px;
-  --width-page: 720px;
-  --width-wide: 820px;
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --space-2xl: 5rem;
-  --space-3xl: 7rem;
+  /* Layout */
+  --width-content: 680px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #121014;
-    --color-surface: #1a181c;
-    --color-text: #e2ddd6;
-    --color-text-secondary: #9a958e;
-    --color-text-tertiary: #6a6560;
-    --color-border: #2a282c;
-    --color-border-light: #222024;
-    --color-accent: #7a7268;
-    --color-accent-subtle: rgba(122, 114, 104, 0.08);
-    --color-link: #e2ddd6;
-    --color-link-hover: #9a958e;
-    --color-code-bg: #242226;
-    --color-ink-light: rgba(226, 221, 214, 0.03);
-    --color-ink-medium: rgba(226, 221, 214, 0.05);
+    --bg: #0f0f1a;
+    --surface: #1a1a2e;
+    --surface-hover: #222240;
+    --text: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --text-tertiary: #6b7280;
+    --accent: #f59e0b;
+    --accent-subtle: rgba(245,158,11,0.1);
+    --accent-hover: #d97706;
+    --border: #2d2d4a;
+    --border-light: #1f1f38;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.4);
   }
 }
 
-/* ─── Reset & Base ───────────────────────── */
+/* ─── Reset ───────────────────────────── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: var(--text);
+  background: var(--bg);
   line-height: 1.75;
-  position: relative;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* ─── Subtle Paper / Ink Texture ─────────── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-}
-
-a {
-  color: var(--color-link);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  transition: color 0.2s ease;
-}
-a:hover {
-  color: var(--color-link-hover);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-::selection {
-  background-color: rgba(139, 126, 114, 0.2);
-}
-
-/* ─── Scrollbar — Ink-inspired ───────────── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-text-tertiary); }
-
-/* ─── Rain Drop Divider ──────────────────── */
-.rain-divider {
+/* ─── Page wrapper ─────────────────────── */
+.page {
+  max-width: var(--width-content);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  user-select: none;
-  opacity: 0.25;
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-  color: var(--color-text-tertiary);
-}
-.rain-divider .drop {
-  display: inline-block;
-  animation: drip 2.4s ease-in-out infinite;
-}
-.rain-divider .drop:nth-child(2) { animation-delay: 0.4s; }
-.rain-divider .drop:nth-child(3) { animation-delay: 0.8s; }
-.rain-divider .drop:nth-child(4) { animation-delay: 1.2s; }
-.rain-divider .drop:nth-child(5) { animation-delay: 1.6s; }
-
-@keyframes drip {
-  0%, 100% { transform: translateY(0); opacity: 0.2; }
-  50% { transform: translateY(-3px); opacity: 0.6; }
+  flex-direction: column;
 }
 
-/* ─── Ink Border Effect (shared) ─────────── */
-.ink-border {
-  position: relative;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-}
-.ink-border:hover {
-  border-color: var(--color-accent);
-  box-shadow:
-    0 0 0 1px var(--color-ink-light),
-    0 4px 20px var(--color-ink-medium),
-    0 1px 3px var(--color-ink-light);
-  transform: translateY(-2px);
+/* ─── Utilities ────────────────────────── */
+a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+::selection { background: var(--accent-subtle); }
+
+/* ─── Scrollbar ─────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+
+/* ─── Reading Progress ──────────────────── */
+.reading-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 100;
 }
 
-/* ─── Animations ─────────────────────────── */
+/* ─── Animations ────────────────────────── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-@keyframes inkSpread {
-  from { width: 0; opacity: 0; }
-  to { width: 100%; opacity: 1; }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .animate-fade-up { animation: fadeUp 0.6s ease both; }
 .animate-fade-in { animation: fadeIn 0.6s ease both; }
+.animate-slide-in { animation: slideIn 0.4s ease both; }
 
 .delay-1 { animation-delay: 0.05s; }
 .delay-2 { animation-delay: 0.1s; }
@@ -182,14 +130,86 @@ img {
 .delay-4 { animation-delay: 0.2s; }
 .delay-5 { animation-delay: 0.25s; }
 .delay-6 { animation-delay: 0.3s; }
+.delay-7 { animation-delay: 0.35s; }
+.delay-8 { animation-delay: 0.4s; }
 
-/* ─── Dark mode code block fix ───────────── */
+/* ─── Card ──────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+/* ─── Tag / Badge ────────────────────────── */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Section label ─────────────────────── */
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── Ink border (shared card style) ────── */
+.ink-border {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.ink-border:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ─── Post meta ──────────────────────────── */
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+.post-number {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ─── Dark mode code fix ────────────────── */
 @media (prefers-color-scheme: dark) {
   .astro-code, .astro-code span {
     color: var(--shiki-dark) !important;
     background-color: var(--shiki-dark-bg) !important;
-    font-style: var(--shiki-dark-font-style) !important;
-    font-weight: var(--shiki-dark-font-weight) !important;
-    text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 }
