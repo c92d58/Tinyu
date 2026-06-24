@@ -19,21 +19,22 @@
 <style>
   #back-to-top {
     position: fixed;
-    bottom: var(--space-xl);
-    right: var(--space-xl);
+    bottom: 1.5rem;
+    right: 1.5rem;
     width: 2.5rem;
     height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 50%;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
     transform: translateY(8px);
+    box-shadow: var(--shadow-card);
     transition: opacity 0.25s ease, transform 0.25s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
     z-index: 50;
   }
@@ -45,8 +46,9 @@
   }
 
   #back-to-top:hover {
-    color: var(--color-text);
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 1px var(--color-ink-light), 0 4px 12px var(--color-ink-medium);
+    color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-card-glow);
+    transform: translateY(-2px);
   }
 </style>

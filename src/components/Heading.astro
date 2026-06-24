@@ -13,7 +13,7 @@ const { as: Tag = "h1" } = Astro.props;
 <style>
   .heading {
     font-family: var(--font-heading);
-    color: var(--color-text);
+    color: var(--text);
     letter-spacing: -0.02em;
     line-height: 1.25;
   }
@@ -26,7 +26,7 @@ const { as: Tag = "h1" } = Astro.props;
   .heading-h1 {
     font-size: 2.25rem;
     font-weight: 700;
-    margin-bottom: var(--space-md);
+    margin-bottom: 1rem;
   }
 
   .heading-h1 .heading-ink::after {
@@ -36,7 +36,7 @@ const { as: Tag = "h1" } = Astro.props;
     left: 0;
     width: 60%;
     height: 2px;
-    background: var(--color-accent);
+    background: var(--accent);
     opacity: 0.3;
     border-radius: 1px;
   }
@@ -44,15 +44,15 @@ const { as: Tag = "h1" } = Astro.props;
   .heading-h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-sm);
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .heading-h3 {
     font-size: 1.125rem;
     font-weight: 600;
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-sm);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   @media (max-width: 600px) {

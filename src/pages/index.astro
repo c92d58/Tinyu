@@ -163,12 +163,13 @@ const totalPages = Math.ceil(allPosts.length / 9);
   .post-item {
     padding: 1.25rem;
     background: var(--surface);
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .post-item:hover {
     border-color: var(--accent);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-glow);
+    transform: translateY(-3px);
   }
   .post-item a {
     display: flex;

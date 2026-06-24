@@ -4,7 +4,7 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="footer-inner">
-    <p class="footer-copy">&copy; 2026 WAHSUN. All rights reserved.</p>
+    <p class="footer-copy">&copy; {year} WAHSUN. All rights reserved.</p>
   </div>
 </footer>
 
@@ -14,6 +14,15 @@ const year = new Date().getFullYear();
     padding: 2rem 0 2rem;
     text-align: center;
     position: relative;
+  }
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
   }
   .footer-inner {
     display: flex;

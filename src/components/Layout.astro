@@ -74,7 +74,12 @@ const ogImageAbsolute = new URL(ogImage, Astro.site).href;
   </head>
   <body>
     <div class="page">
-      <canvas id="mouse-trail" class="mouse-trail"></canvas>
+      <!-- Ambient background gradient blobs -->
+      <div id="ambient-bg" class="ambient-bg" aria-hidden="true">
+        <div class="ambient-blob blob-1"></div>
+        <div class="ambient-blob blob-2"></div>
+        <div class="ambient-blob blob-3"></div>
+      </div>
       <Nav />
       <main id="main-content">
         <slot />
@@ -96,85 +101,268 @@ const ogImageAbsolute = new URL(ogImage, Astro.site).href;
       }
     </script>
     <script>
-      // Mouse trail particle effect
+      // Enhanced blog effects: scroll reveal, code copy, image viewer
       (function() {
-        const canvas = document.getElementById('mouse-trail');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let points = [];
-        let mouse = { x: -9999, y: -9999 };
-        let animating = true;
+        'use strict';
 
-        function resize() {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
+        // ─── Helpers ─────────────────────────
+        function qs(s, ctx) { return (ctx || document).querySelector(s); }
+        function qsa(s, ctx) { return (ctx || document).querySelectorAll(s); }
 
-        function Point(x, y, sx, sy, size, alpha) {
-          this.x = x; this.y = y;
-          this.sx = sx; this.sy = sy;
-          this.size = size;
-          this.alpha = alpha;
-          this.life = 1;
-          this.active = true;
-          this.update = function() {
-            this.x += this.sx;
-            this.y += this.sy;
-            this.sy += 0.04;
-            this.life -= 0.008;
-            this.alpha = this.life * 0.6;
-            if (this.life <= 0) { this.active = false; }
-          };
-          this.draw = function() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size * this.life, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(217,119,6,${this.alpha})`;
-            ctx.fill();
-          };
+        // ─── 1. Scroll Reveal ────────────────
+        const revealTargets = qsa('.reveal, .post-item, .featured, .hero-title, .hero-desc, h2, h3, blockquote, figure, .pagination, .section-label-wrap');
+        if (revealTargets.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          const ro = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                ro.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+          revealTargets.forEach(el => {
+            if (!el.classList.contains('animate-fade-up') && !el.classList.contains('animate-fade-in')) {
+              el.classList.add('reveal-ready');
+            }
+            ro.observe(el);
+          });
         }
 
-        function animate() {
-          if (!animating) { requestAnimationFrame(animate); return; }
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // ─── 2. Code Copy Button ─────────────
+        const codeBlocks = qsa('pre');
+        codeBlocks.forEach(block => {
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.setAttribute('aria-label', '複製代碼');
+          btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.addEventListener('click', async () => {
+            const code = block.querySelector('code');
+            if (!code) return;
+            try {
+              await navigator.clipboard.writeText(code.textContent || '');
+              btn.classList.add('copied');
+              btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+              setTimeout(() => {
+                btn.classList.remove('copied');
+                btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+              }, 2000);
+            } catch (e) { /* clipboard API may fail in insecure context */ }
+          });
+          block.style.position = 'relative';
+          block.appendChild(btn);
+        });
 
-          for (let i = 0; i < 3; i++) {
-            const angle = Math.random() * Math.PI * 2;
-            const speed = 0.5 + Math.random() * 1.5;
-            points.push(new Point(
-              mouse.x + (Math.random() - 0.5) * 4,
-              mouse.y + (Math.random() - 0.5) * 4,
-              Math.cos(angle) * speed,
-              Math.sin(angle) * speed - 1,
-              2 + Math.random() * 3,
-              0.3 + Math.random() * 0.4
-            ));
+        // ─── 3. Image Viewer (lightbox) ──────
+        const articleImages = qsa('.prose img, article img, .post-content img');
+        if (articleImages.length) {
+          // Create overlay
+          const overlay = document.createElement('div');
+          overlay.className = 'img-viewer-overlay';
+          overlay.innerHTML = '<div class="img-viewer-bg"></div><img class="img-viewer-content" alt=""><button class="img-viewer-close" aria-label="關閉">✕</button>';
+          document.body.appendChild(overlay);
+
+          const bg = qs('.img-viewer-bg', overlay);
+          const viewerImg = qs('.img-viewer-content', overlay);
+          const closeBtn = qs('.img-viewer-close', overlay);
+
+          function openViewer(img) {
+            viewerImg.src = img.src;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+          function closeViewer() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
           }
 
-          points = points.filter(p => p.active);
-          for (const p of points) { p.update(); p.draw(); }
-          if (points.length > 300) points = points.slice(-300);
-
-          requestAnimationFrame(animate);
+          articleImages.forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => openViewer(img));
+          });
+          closeBtn.addEventListener('click', closeViewer);
+          bg.addEventListener('click', closeViewer);
+          document.addEventListener('keydown', e => { if (e.key === 'Escape') closeViewer(); });
         }
 
-        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!prefersReduced) animate();
-
-        document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-        document.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+        // ─── 4. Smooth Anchor Scroll ─────────
+        qsa('a[href^="#"]').forEach(a => {
+          a.addEventListener('click', e => {
+            const id = a.getAttribute('href').slice(1);
+            const target = document.getElementById(id);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
       })();
     </script>
   </body>
 </html>
 
-<style>
-  .mouse-trail {
+<style is:global>
+  /* ─── Ambient Background Orbs ───────────── */
+  .ambient-bg {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    inset: 0;
+    overflow: hidden;
     pointer-events: none;
-    z-index: 9999;
+    z-index: -1;
+  }
+  .ambient-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    will-change: transform;
+  }
+  .blob-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(217,119,6,0.15), transparent 70%);
+    top: -10%;
+    left: -5%;
+    animation: blobFloat1 20s ease-in-out infinite;
+  }
+  .blob-2 {
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(245,158,11,0.12), transparent 70%);
+    bottom: -5%;
+    right: -8%;
+    animation: blobFloat2 25s ease-in-out infinite;
+  }
+  .blob-3 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(251,191,36,0.1), transparent 70%);
+    top: 40%;
+    left: 60%;
+    animation: blobFloat3 18s ease-in-out infinite;
+  }
+
+  @keyframes blobFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(60px, -40px) scale(1.1) rotate(5deg); }
+    66% { transform: translate(-30px, 50px) scale(0.95) rotate(-3deg); }
+  }
+  @keyframes blobFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-50px, 30px) scale(1.15) rotate(-4deg); }
+    66% { transform: translate(40px, -60px) scale(0.9) rotate(6deg); }
+  }
+  @keyframes blobFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(70px, 40px) scale(1.2); }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .ambient-blob { opacity: 0.2; }
+    .blob-1 { background: radial-gradient(circle, rgba(217,119,6,0.1), transparent 70%); }
+    .blob-2 { background: radial-gradient(circle, rgba(100,50,200,0.08), transparent 70%); }
+    .blob-3 { background: radial-gradient(circle, rgba(245,158,11,0.06), transparent 70%); }
+  }
+
+  /* ─── Scroll Reveal ─────────────────────── */
+  .reveal-ready {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal-ready.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── Code Copy Button ──────────────────── */
+  .code-copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+    z-index: 5;
+  }
+  pre:hover .code-copy-btn {
+    opacity: 1;
+  }
+  .code-copy-btn:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+    border-color: var(--accent);
+  }
+  .code-copy-btn.copied {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ─── Image Viewer (lightbox) ───────────── */
+  .img-viewer-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .img-viewer-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .img-viewer-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+  }
+  .img-viewer-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .img-viewer-overlay.active .img-viewer-content {
+    transform: scale(1);
+  }
+  .img-viewer-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 2;
+  }
+  .img-viewer-close:hover {
+    background: rgba(255,255,255,0.25);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ambient-blob { animation: none !important; }
+    .reveal-ready { opacity: 1 !important; transform: none !important; }
   }
 </style>
