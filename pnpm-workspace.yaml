@@ -5,3 +5,4 @@ allowBuilds:
   sharp: true
 overrides:
   esbuild: 0.28.1
+  yaml: 2.9.0
