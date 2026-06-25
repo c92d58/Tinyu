@@ -3,7 +3,7 @@ packages:
 allowBuilds:
   esbuild: true
   sharp: true
-  workerd: set this to true or false
+  workerd: true
 overrides:
   esbuild: 0.28.1
   yaml: 2.9.0
