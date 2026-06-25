@@ -1,7 +1,6 @@
 ---
 import Heading from "./Heading.astro";
 import Prose from "./Prose.astro";
-import TableOfContents from "./TableOfContents.astro";
 
 interface Heading_ {
   depth: number;
@@ -61,7 +60,6 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString("en-US", {
     )}
   </header>
 
-  {headings.length > 0 && <TableOfContents headings={headings} />}
   <Prose>
     <slot />
   </Prose>
