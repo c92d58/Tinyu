@@ -5,7 +5,8 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 export default defineConfig({
-  site: "https://c92d58.github.io/Blog",
+  site: "https://c92d58.github.io",
+  base: "/Blog",
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {
